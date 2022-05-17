@@ -1,0 +1,26 @@
+﻿// See https://aka.ms/new-console-template for more information
+Console.ForegroundColor = ConsoleColor.Yellow;
+Console.WriteLine("dotnet readytorun compiled (self-contained)");
+Console.ForegroundColor = ConsoleColor.White;
+Console.WriteLine("dotnet publish -c Release -r win-x64 -p:PublishTrimmed=true -p:PublishReadyToRun=true -p:PublishSingleFile=true");
+Console.WriteLine("=====================================================================================================================");
+Console.ForegroundColor = ConsoleColor.Yellow;
+Console.WriteLine("dotnet aot compile (prepare step)");
+Console.ForegroundColor = ConsoleColor.White;
+Console.WriteLine("1. dotnet new nugetconfig");
+Console.WriteLine($$"""2. add line, nugetconfig file : <add key="dotnet7" value="https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet7/nuget/v3/index.json" />""");
+Console.WriteLine("3. dotnet add package Microsoft.DotNet.ILCompiler -v 7.0.0-*");
+Console.WriteLine("dotnet publish -c Release -r win-x64");
+Console.WriteLine("=====================================================================================================================");
+Console.WriteLine("aot compile file size : 4~5mb");
+Console.WriteLine("readytorun compile file size : 15~17mb");
+Console.WriteLine("=====================================================================================================================");
+Console.ForegroundColor = ConsoleColor.Yellow;
+Console.WriteLine("aot compile senario");
+Console.ForegroundColor = ConsoleColor.White;
+Console.WriteLine("native library and console application");
+Console.WriteLine("(native library means c# code call at rust library)");
+Console.WriteLine("=====================================================================================================================");
+Console.ForegroundColor = ConsoleColor.Blue;
+Console.WriteLine("ref : https://devblogs.microsoft.com/dotnet/announcing-dotnet-7-preview-3/+&cd=1&hl=ko&ct=clnk&gl=kr");
+Console.ReadLine();
